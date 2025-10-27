@@ -16,3 +16,4 @@ calculons PCGD(17,13)
 17=13×1+4
 13=4×3+1
 4=4×1+0➡️PCGD=1
+#include <stdio.h>int main() {    int a, b, reste;    printf("Entrez deux entiers positifs : ");    scanf("%d %d", &a, &b);    int A = a, B = b;
