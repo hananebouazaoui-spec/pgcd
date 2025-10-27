@@ -10,10 +10,10 @@ Calculons PGCD(270,192)
 270=192×1+78
 192=78×2+36
 78=36×2+6
-36=6×6+0➡️PCGD=d
+36=6×6+0➡️PCGD=6
 °Exemple 2:
 calculons PCGD(17,13)
 17=13×1+4
 13=4×3+1
 4=4×1+0➡️PCGD=1
-#include <stdio.h>int main() {    int a, b, reste;    printf("Entrez deux entiers positifs : ");    scanf("%d %d", &a, &b);    int A = a, B = b;
+✓Implémentation en langage C:
