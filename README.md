@@ -33,19 +33,15 @@ calculons PCGD(1071,462)
 1071 = 462×2 + 147
 462 = 147×3 + 21
 147 = 21×7 + 0
-➡️ PGCD = 21
+ PGCD = 21
   3■■Algorithme (pseudo-code)
 Entrée : deux entiers a, b
-Tant que b ≠ 0 faire
-r ➡️ a mod b
-a ➡️ b
-b ➡️ r
-Fin Tant que
-Sortie : a (le PGCD)
-  4■■ Implémentation en langage C
-function gcd(a, b):
-    while b ≠ 0:
-        r = a mod b
-        a = b
-        b = r
-    return a
+Début
+  Lire a, b
+  Tant que b ≠ 0 faire
+      r ➡️ a mod b
+      a ➡️ b
+      b ➡️ r
+  Fin Tant que
+  Afficher ("Le PGCD est : ", a)
+Fin
