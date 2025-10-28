@@ -43,3 +43,9 @@ b ➡️ r
 Fin Tant que
 Sortie : a (le PGCD)
   4■■ Implémentation en langage C
+function gcd(a, b):
+    while b ≠ 0:
+        r = a mod b
+        a = b
+        b = r
+    return a
