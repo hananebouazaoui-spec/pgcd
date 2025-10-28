@@ -37,9 +37,9 @@ calculons PCGD(1071,462)
   3■■Algorithme (pseudo-code)
 Entrée : deux entiers a, b
 Tant que b ≠ 0 faire
-r ← a mod b
-a ← b
-b ← r
+r ➡️ a mod b
+a ➡️ b
+b ➡️ r
 Fin Tant que
 Sortie : a (le PGCD)
   4■■ Implémentation en langage C
