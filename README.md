@@ -4,10 +4,11 @@ Réalisé par : Hanane Bouazaoui
 École : ESTK
 Date de remise : 29/10/2025
 
+  1■■ Rappel théorique
     ✓Définition : Le PGCD de deux entiers naturels est le plus grand entier qui divise les deux nombres sans reste.
 
     ✓Principe : Si a et b sont deux entiers, alors :PGCD(a, b) = PGCD(b, a mod b)On répète jusqu’à ce que le reste soit nul.
-  2■■Exemles manuelles;
+  2■■ Exemles manuelles;
   °Exemple 1: 
 Calculons PGCD(270,192)
 270=192×1+78
@@ -34,7 +35,7 @@ calculons PCGD(1071,462)
 462 = 147×3 + 21
 147 = 21×7 + 0
  PGCD = 21
-  3■■Algorithme (pseudo-code)
+   3■■Algorithme (pseudo-code)
 Entrée : deux entiers a, b
 Début
   Lire a, b
