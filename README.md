@@ -51,30 +51,9 @@ Début
   Afficher ("Le PGCD est : ", a)
 Fin
 
-  4■■ Implémentation en langage C*
+  4■■ Implémentation en langage C:
 
-#include <stdio.h>
 
-int pgcd(int a, int b) {
-    while (b!= 0) {
-        int r = a % b;
-        a = b;
-        b = r;
-}
-    return a;
-
-}
-
-int main() {
-    int x, y;
-    printf("Entrez deux entiers naturels: ");
-    scanf("%d %d", &x, &y);
-
-    int resultat = pgcd(x, y);
-    printf("Le PGCD de %d et %d est: %d\n", x, y, resultat);
-
-    return 0;
-}
 
    6■■ Conclusion:
 
