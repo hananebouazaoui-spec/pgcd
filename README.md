@@ -1,10 +1,6 @@
 # pgcd
-Travaux Pratiques – Algorithme d’Euclide (PGCD
-Réalisé par : Hanane Bouazaoui
-École : ESTK
-Date de remise : 29/10/2025
 
-  1■■ Rappel théorique
+   1■■ Rappel théorique
     ✓Définition : Le PGCD de deux entiers naturels est le plus grand entier qui divise les deux nombres sans reste.
 
     ✓Principe : Si a et b sont deux entiers, alors :PGCD(a, b) = PGCD(b, a mod b)On répète jusqu’à ce que le reste soit nul.
@@ -61,7 +57,6 @@ int main() {
     printf("Entrez deux entiers positifs : ");
     scanf("%d %d", &a, &b);
 
-    // Sauvegarde pour affichage final
     int A = a, B = b;
 
     while (b != 0) {
@@ -77,6 +72,5 @@ int main() {
 
    6■■ Conclusion:
 
-L’algorithme d’Euclide est une méthode rapide, fiable et facile à implémenter pour calculer le PGCD.
-Les exemples manuels confirment la logique mathématique, et le programme en C donne des résultats exacts.
-La boucle *TANT QUE* permet une exécution claire et efficace.
+Ce travail pratique nous a permis de comprendre et d’appliquer l’algorithme d’Euclide pour le calcul du PGCD.
+L’algorithme s’est révélé rapide, fiable et facile à implémenter, même pour des nombres de grande taille.
