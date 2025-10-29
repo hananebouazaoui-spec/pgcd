@@ -53,7 +53,27 @@ Fin
 
   4■■ Implémentation en langage C:
 
+#include <stdio.h>
 
+int main() {
+    int a, b, r;
+
+    printf("Entrez deux entiers positifs : ");
+    scanf("%d %d", &a, &b);
+
+    // Sauvegarde pour affichage final
+    int A = a, B = b;
+
+    while (b != 0) {
+        r = a % b;
+        a = b;
+        b = r;
+    }
+
+    printf("Le PGCD de %d et %d est : %d\n", A, B, a);
+
+    return 0;
+}
 
    6■■ Conclusion:
 
