@@ -1,4 +1,4 @@
-# pgcd
+ù# pgcd
 Travaux Pratiques – Algorithme d’Euclide (PGCD
 Réalisé par : Hanane Bouazaoui
 École : ESTK
@@ -35,7 +35,7 @@ calculons PCGD(1071,462)
 462 = 147×3 + 21
 147 = 21×7 + 0
  PGCD = 21
-   3■■Algorithme (pseudo-code)
+  3■■Algorithme (pseudo-code)
 Entrée : deux entiers a, b
 Début
   Lire a, b
@@ -46,3 +46,26 @@ Début
   Fin Tant que
   Afficher ("Le PGCD est : ", a)
 Fin
+  4■■ Implémentation en langage C*
+
+#include <stdio.h>
+
+int pgcd(int a, int b) {
+    while (b!= 0) {
+        int r = a % b;
+        a = b;
+        b = r;
+}
+    return a;
+}
+
+int main() {
+    int x, y;
+    printf("Entrez deux entiers naturels: ");
+    scanf("%d %d", &x, &y);
+
+    int resultat = pgcd(x, y);
+    printf("Le PGCD de %d et %d est: %d\n", x, y, resultat);
+
+    return 0;
+}
