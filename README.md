@@ -57,6 +57,7 @@ int pgcd(int a, int b) {
         b = r;
 }
     return a;
+
 }
 
 int main() {
@@ -69,3 +70,9 @@ int main() {
 
     return 0;
 }
+
+   6■■ Conclusion:
+
+L’algorithme d’Euclide est une méthode rapide, fiable et facile à implémenter pour calculer le PGCD.
+Les exemples manuels confirment la logique mathématique, et le programme en C donne des résultats exacts.
+La boucle *TANT QUE* permet une exécution claire et efficace.
