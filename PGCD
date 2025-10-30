@@ -50,6 +50,7 @@ Afficher ("Le PGCD est : ", a)
 
 int main() {
     int a, b, r;
+
     printf("Entrez deux entiers positifs : ");
     scanf("%d %d", &a, &b);
 
@@ -57,7 +58,7 @@ int main() {
 
     while (b != 0) {
         r = a % b;
-        printf("%d = %d × %d + %d\n", a, a / b, b, r); 
+        printf("%d = %d × %d + %d\n", a, a / b, b, r); // afficher les étapes dedivision euclidienne
         a = b;
         b = r;
     }
