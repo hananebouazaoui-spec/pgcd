@@ -48,22 +48,23 @@ Afficher ("Le PGCD est : ", a)
 
 #include <stdio.h>
 
-int main() { int a, b, r;
+int main() {
+    int a, b, r;
+    printf("Entrez deux entiers positifs : ");
+    scanf("%d %d", &a, &b);
 
-printf("Entrez deux entiers positifs : ");
-scanf("%d %d", &a, &b);
+    int A = a, B = b;
 
-int A = a, B = b;
+    while (b != 0) {
+        r = a % b;
+        printf("%d = %d × %d + %d\n", a, a / b, b, r); 
+        a = b;
+        b = r;
+    }
 
-while (b != 0) {
-    r = a % b;
-    a = b;
-    b = r;
-}
+    printf("Le PGCD de %d et %d est : %d\n", A, B, a);
 
-printf("Le PGCD de %d et %d est : %d\n", A, B, a);
-
-return 0;
+    return 0;
 }
 
 6■■ Conclusion:
