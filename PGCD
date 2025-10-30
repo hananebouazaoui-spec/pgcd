@@ -58,16 +58,19 @@ int main() {
 
     while (b != 0) {
         r = a % b;
-        printf("%d = %d × %d + %d\n", a, a / b, b, r); // afficher les étapes dedivision euclidienne
+        printf("%d = %d × %d + %d\n", a, a / b, b, r); // afficher les étapes de division euclidienne
         a = b;
         b = r;
     }
 
     printf("Le PGCD de %d et %d est : %d\n", A, B, a);
 
+    if (a == 1) {
+        printf("%d et %d sont premiers entre eux.\n", A, B);
+    }
+
     return 0;
 }
-
 6■■ Conclusion:
 
 Ce travail pratique nous a permis de comprendre et d’appliquer l’algorithme d’Euclide pour le calcul du PGCD. L’algorithme s’est révélé rapide, fiable et facile à implémenter, même pour des nombres de grande taille.
