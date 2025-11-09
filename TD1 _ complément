@@ -1,0 +1,56 @@
+#include <stdio.h>
+
+int calcul_pgcd(int a, int b) {
+    int r, i = 1;
+    printf("\n>> Étapes du calcul du PGCD :\n");
+    while (b != 0) {
+        r = a % b;
+        printf("Étape %d : %d = %d * (%d / %d) + %d\n", i, a, b, a, b, r);
+        a = b;
+        b = r;
+        i++;
+    }
+    return a;
+}
+
+int euclide_etendu(int a, int b, int *x, int *y) {
+    if (b == 0) {
+        *x = 1;
+        *y = 0;
+        return a;
+    }
+
+    int x1, y1;
+    int d = euclide_etendu(b, a % b, &x1, &y1);
+    *x = y1;
+    *y = x1 - (a / b) * y1;
+
+    return d;
+}
+
+int main() {
+    int a, b, c;
+    printf("Saisir les valeurs a, b et c (équation : ax + by = c): ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    int d = calcul_pgcd(a, b);
+    printf("\nRésultat : PGCD(%d, %d) = %d\n", a, b, d);
+
+    if (c % d != 0) {
+        printf("Aucune solution entière car %d ne divise pas %d.\n", d, c);
+        return 0;
+    }
+
+    printf("\n  Il existe des solutions car %d divise %d\n", d, c);
+
+    int x, y;
+    euclide_etendu(a, b, &x, &y);
+
+    int x_part = x * (c / d);
+    int y_part = y * (c / d);
+
+    printf("\n>> Solution particulière :\n");
+    printf("x = %d, y = %d\n", x_part, y_part);
+
+    return 0;
+}
