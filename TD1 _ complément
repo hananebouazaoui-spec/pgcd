@@ -22,6 +22,7 @@ int euclide_etendu(int a, int b, int *x, int *y) {
 
     int x1, y1;
     int d = euclide_etendu(b, a % b, &x1, &y1);
+
     *x = y1;
     *y = x1 - (a / b) * y1;
 
@@ -37,20 +38,30 @@ int main() {
     printf("\nRésultat : PGCD(%d, %d) = %d\n", a, b, d);
 
     if (c % d != 0) {
-        printf("Aucune solution entière car %d ne divise pas %d.\n", d, c);
+        printf("\nAucune solution entière car %d ne divise pas %d.\n", d, c);
         return 0;
     }
 
-    printf("\n  Il existe des solutions car %d divise %d\n", d, c);
+    printf("\nIl existe des solutions car %d divise %d.\n", d, c);
 
-    int x, y;
-    euclide_etendu(a, b, &x, &y);
+    int x0, y0;
+    euclide_etendu(a, b, &x0, &y0);
 
-    int x_part = x * (c / d);
-    int y_part = y * (c / d);
+    // Solution particulière
+    int x_part = x0 * (c / d);
+    int y_part = y0 * (c / d);
 
     printf("\n>> Solution particulière :\n");
     printf("x = %d, y = %d\n", x_part, y_part);
 
+    // Solution générale
+    int alpha = b / d;
+    int beta  = -a / d;
+
+    printf("\n>> Solution générale :\n");
+    printf("x = %d + (%d)k\n", x_part, alpha);
+    printf("y = %d + (%d)k\n", y_part, beta);
+    printf("pour tout k ∈ Z.\n");
+
     return 0;
-}
+} 
