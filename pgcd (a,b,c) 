@@ -1,0 +1,40 @@
+TP : Calcul du PGCD de trois nombres
+
+1. Définition
+
+
+
+Le PGCD (Plus Grand Commun Diviseur) de trois nombres est le plus grand entier qui divise ces nombres sans reste.
+
+Formule :
+
+PGCD(a, b, c) = PGCD(PGCD(a, b), c)
+
+
+---
+
+2. Exemple de calcul
+
+
+
+Nombres :
+
+1. Calculer
+
+
+2. Calculer
+
+
+
+Résultat :
+
+PGCD(24, 36, 60) = 12
+
+
+---
+
+3. Remarques :
+
+
+
+On commence par calculer le PGCD de deux nombres, puis on utilise ce résultat avec le troisième.
