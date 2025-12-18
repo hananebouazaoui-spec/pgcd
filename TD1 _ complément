@@ -1,56 +1,101 @@
   #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-int calcul_pgcd(int a, int b) {
-    int r, i = 1;
-    printf("\n>> Étapes du calcul du PGCD :\n");
-    while (b != 0) {
-        r = a % b;
-        printf("Étape %d : %d = %d * (%d / %d) + %d\n", i, a, b, a, b, r);
-        a = b;
-        b = r;
-        i++;
-    }
-    return a;
-}
-
-int euclide_etendu(int a, int b, int *x, int *y) {
+// Extended Euclidean Algorithm
+int extendedEuclid(int a, int b, int *x, int *y) {
     if (b == 0) {
         *x = 1;
         *y = 0;
         return a;
     }
-
     int x1, y1;
-    int d = euclide_etendu(b, a % b, &x1, &y1);
+    int gcd = extendedEuclid(b, a % b, &x1, &y1);
     *x = y1;
     *y = x1 - (a / b) * y1;
-
-    return d;
+    return gcd;
 }
 
 int main() {
     int a, b, c;
-    printf("Saisir les valeurs a, b et c (équation : ax + by = c): ");
-    scanf("%d %d %d", &a, &b, &c);
+    int a0, b0, r, operations = 0;
+    int x, y, xp, yp;
 
-    int d = calcul_pgcd(a, b);
-    printf("\nRésultat : PGCD(%d, %d) = %d\n", a, b, d);
+    printf("\n CALCULE DE PGCD  ET EQUATION LINEAIRE.\n");
 
-    if (c % d != 0) {
-        printf("Aucune solution entière car %d ne divise pas %d.\n", d, c);
-        return 0;
+    printf("Entrez le premier nombre (a) : ");
+    scanf("%d", &a);
+    printf("Entrez le deuxieme nombre (b) : ");
+    scanf("%d", &b);
+    printf("Entrez le nombre c pour l'quation a*x + b*y = c : ");
+    scanf("%d", &c);
+
+    a0 = a;
+    b0 = b;
+
+
+
+    // PGCD classique
+    int temp_a = a, temp_b = b;
+    while (temp_b != 0) {
+        r = temp_a % temp_b;
+        printf("%d = %d * (%d / %d) + %d\n", temp_a, temp_b, temp_a, temp_b, r);
+        temp_a = temp_b;
+        temp_b = r;
+        operations++;
+    }
+    int d = temp_a;
+
+    // Extended Euclid
+    int gcd = extendedEuclid(a, b, &x, &y);
+
+
+
+    printf("\t #Resultat PGCD : %d\n", gcd);
+
+    if (gcd == 1)
+        printf(" Les nombres sont premiers entre eux !\n");
+    else {
+        printf("-Les nombres ne sont pas premiers entre eux.\n");
+        printf("x et y qui verifient a*x + b*y = PGCD(a,b) : x = %d, y = %d\n", x, y);
     }
 
-    printf("\n  Il existe des solutions car %d divise %d\n", d, c);
+    // Vérification existence solution
+    if (c % gcd != 0) {
+        printf("-Pas de solution entiere\n");
+    } else {
+        printf("-Il existe des solutions entieres\n");
 
-    int x, y;
-    euclide_etendu(a, b, &x, &y);
+        // Solution particulière
+        int factor = c / gcd;
+        xp = x * factor;
+        yp = y * factor;
 
-    int x_part = x * (c / d);
-    int y_part = y * (c / d);
+        printf("Solution particuliere : x = %d, y = %d\n", xp, yp);
+        printf("Forme generale : x = %d + (%d)*k, y = %d - (%d)*k, \n",
+               xp, b/gcd, yp, a/gcd);
 
-    printf("\n>> Solution particulière :\n");
-    printf("x = %d, y = %d\n", x_part, y_part);
+        // ★★★ Extraction des solutions positives ★★★
+    printf("\n LES Solutions positives d'equation (x > 0 et y > 0) .\n");
+
+        int stepX = b / gcd;
+        int stepY = a / gcd;
+
+        int found = 0;
+
+        for (int k = -10000; k <= 10000; k++) {
+            int X = xp + stepX * k;
+            int Y = yp - stepY * k;
+
+            if (X > 0 && Y > 0) {
+                printf("\t _ Solution : x = %d, y = %d (k = %d)\n", X, Y, k);
+                found = 1;
+            }
+        }
+
+        if (!found)
+            printf("Aucune solution positive trouvee.\n");
+    }
 
     return 0;
 }
