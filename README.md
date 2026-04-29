@@ -120,3 +120,19 @@ On relie un élément de L1 puis un de L2
 On ne crée pas de nouveaux nœuds
 On modifie فقط les pointeurs
  Complexité : O(n)
+✅ Exercice 5 :
+void DestructionListe(LISTE **L)
+{
+    LISTE *ptr;
+
+    while (*L != NULL)
+    {
+        ptr = *L;
+        *L = (*L)->suivant;
+        free(ptr);
+    }
+}Explication :
+Cette fonction libère toute la mémoire :
+On supprime chaque nœud un par un
+On avance jusqu’à la fin de la liste
+ Complexité : O(n)
