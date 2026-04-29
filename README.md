@@ -114,7 +114,14 @@ LISTE * Fusion(LISTE *L1, LISTE *L2)
     }
 
     return L;
-}Explication :
+}
+Explication :
+Cette fonction vérifie si une chaîne est palindrome :
+Une file (queue) donne l’ordre normal
+Une pile inverse l’ordre
+On compare les deux moitiés
+👉 Si identiques → palindrome
+👉 Complexité : O(n)xplication :
 Cette fonction fusionne deux listes en alternant les éléments :
 On relie un élément de L1 puis un de L2
 On ne crée pas de nouveaux nœuds
@@ -131,8 +138,100 @@ void DestructionListe(LISTE **L)
         *L = (*L)->suivant;
         free(ptr);
     }
-}Explication :
+}
+Explication :
 Cette fonction libère toute la mémoire :
 On supprime chaque nœud un par un
 On avance jusqu’à la fin de la liste
  Complexité : O(n)
+✅ Exercice 6 :
+typedef struct stack {
+    int data;
+    struct stack *next;
+} STACK;
+
+void push(STACK **head, int value)
+{
+    STACK *node = (STACK*) malloc(sizeof(STACK));
+
+    node->data = value;
+    node->next = *head;
+    *head = node;
+}
+
+int pop(STACK **head)
+{
+    STACK *tmp = *head;
+    int val = tmp->data;
+
+    *head = tmp->next;
+    free(tmp);
+
+    return val;
+}
+
+STACK * PairImpair(STACK *P1)
+{
+    STACK *P2 = NULL;
+    STACK *P3 = NULL;
+
+    while (P1)
+    {
+        int val = pop(&P1);
+
+        if (val % 2 == 0)
+            push(&P2, val);
+        else
+            push(&P3, val);
+    }
+
+    while (P3)
+        push(&P2, pop(&P3));
+
+    return P2;
+}
+Explication :
+Cette fonction sépare les nombres pairs et impairs :
+P1 est dépilée
+Les pairs vont dans P2
+Les impairs dans P3 puis transférés vers P2
+👉 Complexité : O(n)
+✅ Exercice 7 :
+int EstPalindrome(char chaine[])
+{
+    int n = strlen(chaine);
+    int mid = n / 2;
+
+    STACK *p = NULL;
+    struct queue *Q = EcrireMessage(chaine);
+
+    char c1, c2;
+    int i;
+
+    for (i = 0; i < mid; i++)
+    {
+        dequeue(Q, &c1);
+        push(&p, c1);
+    }
+
+    if (n % 2 != 0)
+        dequeue(Q, &c1);
+
+    for (i = 0; i < mid; i++)
+    {
+        dequeue(Q, &c1);
+        c2 = pop(&p);
+
+        if (c1 != c2)
+            return 0;
+    }
+
+    return 1;
+}
+ Explication :
+Cette fonction vérifie si une chaîne est palindrome :
+Une file (queue) donne l’ordre normal
+Une pile inverse l’ordre
+On compare les deux moitiés
+  Si identiques → palindrome
+  Complexité : O(n)
