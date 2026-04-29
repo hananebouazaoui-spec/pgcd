@@ -23,6 +23,7 @@ int InsererElementEnTete(LISTE **L, int valeur)
 
     return 1;
 }
+
 Explication :
 Cette fonction insère un nouvel élément au début de la liste :
 On crée un nouveau nœud
@@ -46,6 +47,7 @@ int RechercherValeur(LISTE *L, int valeur)
 
     return 0;
 }
+
  EXPLICATION:
 Cette fonction cherche une valeur dans la liste :
 On parcourt chaque nœud
@@ -88,6 +90,7 @@ int SuppressionValeurMin(LISTE **L)
 
     return 1;
 }
+
   Explication :
 Cette fonction supprime le plus petit élément :
 On cherche la valeur minimale
@@ -123,6 +126,7 @@ LISTE * Fusion(LISTE *L1, LISTE *L2)
 
     return L;
 }
+
 Explication :
 Cette fonction vérifie si une chaîne est palindrome :
 Une file (queue) donne l’ordre normal
@@ -149,6 +153,7 @@ void DestructionListe(LISTE **L)
         free(ptr);
     }
 }
+
 Explication :
 Cette fonction libère toute la mémoire :
 On supprime chaque nœud un par un
@@ -202,6 +207,7 @@ STACK * PairImpair(STACK *P1)
 
     return P2;
 }
+
 Explication :
 Cette fonction sépare les nombres pairs et impairs :
 P1 est dépilée
@@ -242,6 +248,7 @@ int EstPalindrome(char chaine[])
 
     return 1;
 }
+
  Explication :
 Cette fonction vérifie si une chaîne est palindrome :
 Une file (queue) donne l’ordre normal
