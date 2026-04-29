@@ -1,4 +1,6 @@
-✅Exercice 1 : Insertion en têtestruct Element {
+✅Exercice 1 :
+ Insertion en têtes
+truct Element {
     int val;
     struct Element *suivant;
 };
@@ -29,6 +31,7 @@ On met à jour la tête de la liste
  Complexité : O(1)
 
 ✅ Exercice 2:
+
 int RechercherValeur(LISTE *L, int valeur)
 {
     LISTE *ptr = L;
@@ -51,6 +54,7 @@ Si trouvé → 1 sinon → 0
   Complexité : O(n)
 
 ✅ Exercice 3 :
+
 int SuppressionValeurMin(LISTE **L)
 {
     if (*L == NULL)
@@ -92,6 +96,7 @@ On enlève le nœud de la liste
  Complexité : O(n)
 
 ✅ Exercice 4 :
+
 LISTE * Fusion(LISTE *L1, LISTE *L2)
 {
     if (!L1) return L2;
@@ -132,6 +137,7 @@ On modifie فقط les pointeurs
  Complexité : O(n)
 
 ✅ Exercice 5 :
+
 void DestructionListe(LISTE **L)
 {
     LISTE *ptr;
@@ -150,6 +156,7 @@ On avance jusqu’à la fin de la liste
  Complexité : O(n)
 
 ✅ Exercice 6 :
+
 typedef struct stack {
     int data;
     struct stack *next;
@@ -203,6 +210,7 @@ Les impairs dans P3 puis transférés vers P2
   Complexité : O(n)
 
 ✅ Exercice 7 :
+
 int EstPalindrome(char chaine[])
 {
     int n = strlen(chaine);
