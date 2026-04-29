@@ -88,3 +88,35 @@ On cherche la valeur minimale
 On garde son adresse et celle du précédent
 On enlève le nœud de la liste
  Complexité : O(n)
+✅ Exercice 4 :
+LISTE * Fusion(LISTE *L1, LISTE *L2)
+{
+    if (!L1) return L2;
+    if (!L2) return L1;
+
+    LISTE *p1 = L1;
+    LISTE *p2 = L2;
+    LISTE *L = L1;
+
+    LISTE *p3;
+    LISTE *p4;
+
+    while (p1 != NULL && p2 != NULL)
+    {
+        p3 = p1->suivant;
+        p1->suivant = p2;
+
+        p4 = p2->suivant;
+        p2->suivant = p3;
+
+        p1 = p3;
+        p2 = p4;
+    }
+
+    return L;
+}Explication :
+Cette fonction fusionne deux listes en alternant les éléments :
+On relie un élément de L1 puis un de L2
+On ne crée pas de nouveaux nœuds
+On modifie فقط les pointeurs
+ Complexité : O(n)
