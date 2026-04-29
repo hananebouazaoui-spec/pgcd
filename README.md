@@ -1,80 +1,28 @@
-# pgcd
+Exercice 1 : Insertion en têtestruct Element {
+    int val;
+    struct Element *suivant;
+};
 
-   1■■ Rappel théorique
+typedef struct Element LISTE;
 
-    ✓Définition : Le PGCD de deux entiers 
-naturels est le plus grand entier qui divise les deux nombres sans reste.
+int InsererElementEnTete(LISTE **L, int valeur)
+{
+    LISTE *element = (LISTE*) malloc(sizeof(LISTE));
 
-    ✓Principe : Si a et b sont deux entiers,
- alors :PGCD(a, b) = PGCD(b, a mod b)On répète jusqu’à ce que le reste soit nul.
-
-  2■■ Exemles manuelles;
-
-  °Exemple 1: 
-Calculons PGCD(270,192)
-270=192×1+78
-192=78×2+36
-78=36×2+6
-36=6×6+0
-➡️ PCGD=6
-
-   °Exemple 2:
-calculons PCGD(17,13)
-17=13×1+4
-13=4×3+1
-4=4×1+0
-➡️ PCGD=1
-
-   °Exemple 3:
-calculons PCGD(48,18)
-48 = 18×2 + 12
-18 = 12×1 + 6
-12 = 6×2 + 0
-➡️ PGCD = 6
-
-   °Exemple 4: 
-calculons PCGD(1071,462)
-1071 = 462×2 + 147
-462 = 147×3 + 21
-147 = 21×7 + 0
- PGCD = 21
-
-  3■■Algorithme (pseudo-code)
-Entrée : deux entiers a, b
-Début
-  Lire a, b
-  Tant que b ≠ 0 faire
-      r ➡️ a mod b
-      a ➡️ b
-      b ➡️ r
-  Fin Tant que
-  Afficher ("Le PGCD est : ", a)
-Fin
-
-  4■■ Implémentation en langage C:
-
-#include <stdio.h>
-
-int main() {
-    int a, b, r;
-
-    printf("Entrez deux entiers positifs : ");
-    scanf("%d %d", &a, &b);
-
-    int A = a, B = b;
-
-    while (b != 0) {
-        r = a % b;
-        a = b;
-        b = r;
+    if (element == NULL)
+    {
+        printf("Probleme d’allocation memoire\n");
+        return 0;
     }
 
-    printf("Le PGCD de %d et %d est : %d\n", A, B, a);
+    element->val = valeur;
+    element->suivant = *L;
+    *L = element;
 
-    return 0;
-}
-
-   6■■ Conclusion:
-
-Ce travail pratique nous a permis de comprendre et d’appliquer l’algorithme d’Euclide pour le calcul du PGCD.
-L’algorithme s’est révélé rapide, fiable et facile à implémenter, même pour des nombres de grande taille.
+    return 1;
+}Explication :
+Cette fonction insère un nouvel élément au début de la liste :
+On crée un nouveau nœud
+On le relie à l’ancien premier élément
+On met à jour la tête de la liste
+ Complexité : O(1)
